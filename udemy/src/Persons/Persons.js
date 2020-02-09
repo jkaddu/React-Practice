@@ -1,13 +1,22 @@
 import React from "react";
-import "./Persons.css";
+//import "./Persons.css";
+import styled from "styled-components";
 
 const persons = props => {
-  const style = {
-    background: "yellow",
-    color: "black"
-  };
+  const StyledDiv = styled.div`
+  width: 500px;
+  background: teal;
+  padding: 15px;
+  margin: 10px;
+  border: 1px solid black;
+  text-align: center;
+
+  @media (min-width: 500px) {
+      width: 450px;
+  `;
   return (
-    <div className="UserOutput" style={style}>
+    // <div className="UserOutput">
+    <StyledDiv>
       <p onClick={props.click}>Username: {props.name}</p>
       <p>Age: {props.age}</p>
       <input
@@ -16,7 +25,7 @@ const persons = props => {
         onChange={props.changed}
         value={props.name}
       />
-    </div>
+    </StyledDiv>
   );
 };
 
