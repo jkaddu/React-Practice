@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import classes from "./App.module.css";
 import Persons from "./Persons/Persons";
 
 class App extends Component {
@@ -47,14 +47,6 @@ class App extends Component {
   };
 
   render() {
-    const style = {
-      background: "green",
-      color: "black",
-      font: "inherit",
-      border: "1px solid black",
-      padding: "5px",
-      cursor: "pointer"
-    };
     // rendering a toggle using JSX(Maximilians recommended way using the persons variable and a IF statement)
     let persons = null;
 
@@ -74,31 +66,28 @@ class App extends Component {
           })}
         </div>
       );
-      style.backgroundColor = "red";
     }
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1>React Ways</h1>
-          <button
-            className="button"
-            alt={this.state.showPersons}
-            onClick={this.togglePersonsHandler}
-          >
-            Toggle Persons
-          </button>
-          {/* Maximilians JSX recommended way(got the person variable from above and outputted it below)*/}
-          {persons}
-          {/* rendering a toggle using a ternary operator */}
-          {/* {this.state.showPersons ? (
+      <div className={classes.App}>
+        <h1>React Ways</h1>
+        <button
+          className={classes.button}
+          alt={this.state.showPersons}
+          onClick={this.togglePersonsHandler}
+        >
+          Toggle Persons
+        </button>
+        {/* Maximilians JSX recommended way(got the person variable from above and outputted it below)*/}
+        {persons}
+        {/* rendering a toggle using a ternary operator */}
+        {/* {this.state.showPersons ? (
 			  <div>
 			  <Persons changed={this.inputChangeHandler} />
 			  <Persons changed={this.inputChangeHandler} />
 			  <Persons changed={this.inputChangeHandler} />
 			  </div>
 			) : null} */}
-        </header>
       </div>
     );
   }
