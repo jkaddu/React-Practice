@@ -4,14 +4,14 @@ import styled from "styled-components";
 
 const persons = props => {
   const StyledDiv = styled.div`
-  width: 500px;
-  background: teal;
-  padding: 15px;
-  margin: 10px;
-  border: 1px solid black;
-  text-align: center;
+    width: 500px;
+    background: teal;
+    padding: 15px;
+    margin: 10px;
+    border: 1px solid black;
+    text-align: center;
 
-  @media (min-width: 500px) {
+    @media (min-width: 500px) {
       width: 450px;
   `;
   return (

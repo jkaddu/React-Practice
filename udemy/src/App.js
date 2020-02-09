@@ -1,6 +1,21 @@
 import React, { Component } from "react";
 import "./App.css";
 import Persons from "./Persons/Persons";
+import styled from "styled-components";
+
+const StyledButton = styled.button`
+  background: green;
+  color: black;
+  font: inherit;
+  border: 1px solid black;
+  padding: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background: lightGreen;
+    color: black;
+  }
+`;
 
 class App extends Component {
   state = {
@@ -81,9 +96,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>React Ways</h1>
-          <button style={style} onClick={this.togglePersonsHandler}>
+          <StyledButton onClick={this.togglePersonsHandler}>
             Toggle Persons
-          </button>
+          </StyledButton>
           {/* Maximilians JSX recommended way(got the person variable from above and outputted it below)*/}
           {persons}
           {/* rendering a toggle using a ternary operator */}
