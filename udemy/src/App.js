@@ -4,7 +4,7 @@ import Persons from "./Persons/Persons";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  background: green;
+  background: ${props => (props.alt ? "red" : "green")};
   color: black;
   font: inherit;
   border: 1px solid black;
@@ -12,7 +12,7 @@ const StyledButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background: lightGreen;
+    background: ${props => (props.alt ? "yellow" : "lightGreen")};
     color: black;
   }
 `;
@@ -96,7 +96,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>React Ways</h1>
-          <StyledButton onClick={this.togglePersonsHandler}>
+          <StyledButton
+            alt={this.state.showPersons}
+            onClick={this.togglePersonsHandler}
+          >
             Toggle Persons
           </StyledButton>
           {/* Maximilians JSX recommended way(got the person variable from above and outputted it below)*/}
