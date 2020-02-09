@@ -1,6 +1,8 @@
+// App using Radium
 import React, { Component } from "react";
 import "./App.css";
 import Persons from "./Persons/Persons";
+import Radium, { StyleRoot } from "radium";
 
 class App extends Component {
   state = {
@@ -53,7 +55,11 @@ class App extends Component {
       font: "inherit",
       border: "1px solid black",
       padding: "5px",
-      cursor: "pointer"
+      cursor: "pointer",
+      ":hover": {
+        background: "lightGreen",
+        color: "black"
+      }
     };
     // rendering a toggle using JSX(Maximilians recommended way using the persons variable and a IF statement)
     let persons = null;
@@ -75,29 +81,35 @@ class App extends Component {
         </div>
       );
       style.backgroundColor = "red";
+      style[":hover"] = {
+        background: "lightBlue",
+        color: "black"
+      };
     }
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1>React Ways</h1>
-          <button style={style} onClick={this.togglePersonsHandler}>
-            Toggle Persons
-          </button>
-          {/* Maximilians JSX recommended way(got the person variable from above and outputted it below)*/}
-          {persons}
-          {/* rendering a toggle using a ternary operator */}
-          {/* {this.state.showPersons ? (
+      <StyleRoot>
+        <div className="App">
+          <header className="App-header">
+            <h1>React Ways</h1>
+            <button style={style} onClick={this.togglePersonsHandler}>
+              Toggle Persons
+            </button>
+            {/* Maximilians JSX recommended way(got the person variable from above and outputted it below)*/}
+            {persons}
+            {/* rendering a toggle using a ternary operator */}
+            {/* {this.state.showPersons ? (
 			  <div>
 			  <Persons changed={this.inputChangeHandler} />
 			  <Persons changed={this.inputChangeHandler} />
 			  <Persons changed={this.inputChangeHandler} />
 			  </div>
 			) : null} */}
-        </header>
-      </div>
+          </header>
+        </div>
+      </StyleRoot>
     );
   }
 }
 
-export default App;
+export default Radium(App);
