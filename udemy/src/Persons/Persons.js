@@ -17,14 +17,3 @@ const persons = props => {
 };
 
 export default persons;
-
-// Conditional for registration or login page
-
-// if (this.state.username === '' || this.state.password1 === '' || this.state.password2 === '') {
-// 	console.lof('All Fields Required');
-// 	return;
-// }
-
-// if (this.state.password1 !== this.state.password2) {
-// 	console.lof("Passwords Don't Match");
-// }
