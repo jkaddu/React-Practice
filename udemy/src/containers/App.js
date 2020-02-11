@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classes from "./App.module.css";
-import Persons from "./Persons/Persons";
+import Persons from "../Components/Persons/Persons";
 
 class App extends Component {
   state = {
@@ -76,16 +76,7 @@ class App extends Component {
         >
           Toggle Persons
         </button>
-        {/* Maximilians JSX recommended way(got the person variable from above and outputted it below)*/}
         {persons}
-        {/* rendering a toggle using a ternary operator */}
-        {/* {this.state.showPersons ? (
-			  <div>
-			  <Persons changed={this.inputChangeHandler} />
-			  <Persons changed={this.inputChangeHandler} />
-			  <Persons changed={this.inputChangeHandler} />
-			  </div>
-			) : null} */}
       </div>
     );
   }
