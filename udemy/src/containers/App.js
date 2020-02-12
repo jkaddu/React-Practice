@@ -51,17 +51,11 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          {this.state.persons.map((person, index) => {
-            return (
-              <Persons
-                click={() => this.deletePersonsHandler(index)}
-                name={person.name}
-                age={person.age}
-                key={person.id}
-                changed={event => this.inputChangeHandler(event, person.id)}
-              />
-            );
-          })}
+          <Persons
+            persons={this.state.persons}
+            clicked={this.deletePersonsHandler}
+            changed={this.inputChangeHandler}
+          />
         </div>
       );
     }
