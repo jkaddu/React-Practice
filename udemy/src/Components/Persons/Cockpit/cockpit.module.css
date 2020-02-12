@@ -1,0 +1,13 @@
+.button {
+  background: green;
+  color: black;
+  font: inherit;
+  border: 1px solid black;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: lightGreen;
+  color: black;
+}

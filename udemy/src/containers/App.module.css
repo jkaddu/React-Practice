@@ -22,11 +22,3 @@
   background: lightGreen;
   color: black;
 }
-
-.button.red {
-  background: red;
-}
-
-.button.red:hover {
-  background: yellow;
-}

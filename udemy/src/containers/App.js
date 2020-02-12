@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import classes from "./App.module.css";
 import Persons from "../Components/Persons/Persons";
+import Cockpit from "../Components/Persons/Cockpit/Cockpit";
 
 class App extends Component {
   state = {
@@ -50,26 +51,21 @@ class App extends Component {
 
     if (this.state.showPersons) {
       persons = (
-        <div>
-          <Persons
-            persons={this.state.persons}
-            clicked={this.deletePersonsHandler}
-            changed={this.inputChangeHandler}
-          />
-        </div>
+        <Persons
+          persons={this.state.persons}
+          clicked={this.deletePersonsHandler}
+          changed={this.inputChangeHandler}
+        />
       );
     }
 
     return (
       <div className={classes.App}>
-        <h1>React Ways</h1>
-        <button
-          className={classes.button}
-          alt={this.state.showPersons}
-          onClick={this.togglePersonsHandler}
-        >
-          Toggle Persons
-        </button>
+        <Cockpit
+          showPersons={this.state.showPersons}
+          persons={this.state.persons}
+          clicked={this.togglePersonsHandler}
+        />
         {persons}
       </div>
     );
