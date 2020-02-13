@@ -4,6 +4,10 @@ import Persons from "../Components/Persons/Persons";
 import Cockpit from "../Components/Persons/Cockpit/Cockpit";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    console.log("[App.js] constructor");
+  }
   state = {
     persons: [
       { id: "a1", name: "Superman", age: 21 },
@@ -12,6 +16,15 @@ class App extends Component {
     ],
     showPersons: false
   };
+
+  static getDerivedStateFromProps(props, state) {
+    console.log("[App.js] getDerivedStateFromProps", props);
+    return state;
+  }
+
+  componentDidMount() {
+    console.log("[App.js] componentDidMount");
+  }
 
   inputChangeHandler = (event, id) => {
     /* all the code here allows us to target the inputs individually,
@@ -46,6 +59,7 @@ class App extends Component {
   };
 
   render() {
+    console.log("[App.js] render");
     // rendering a toggle using JSX(Maximilians recommended way using the persons variable and a IF statement)
     let persons = null;
 
