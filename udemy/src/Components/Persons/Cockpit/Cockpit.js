@@ -4,7 +4,7 @@ import classes from "./cockpit.module.css";
 const cockpit = props => {
   return (
     <div>
-      <h1>React Ways</h1>
+      <h1>{props.title}</h1>
       <button
         className={classes.button}
         showPersons={props.showPersons}
