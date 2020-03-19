@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: dodgerblue;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
 }
 
 .button {
-  background: green;
+  background: yellow;
   color: black;
   font: inherit;
   border: 1px solid black;
