@@ -1,5 +1,5 @@
 .button {
-  background: green;
+  background: red;
   color: black;
   font: inherit;
   border: 1px solid black;
@@ -8,6 +8,6 @@
 }
 
 .button:hover {
-  background: lightGreen;
+  background: green;
   color: black;
 }
