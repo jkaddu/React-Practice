@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./cockpit.module.css";
 
-const cockpit = props => {
+const cockpit = (props) => {
   return (
     <div>
       <h1>{props.title}</h1>
@@ -16,4 +16,4 @@ const cockpit = props => {
   );
 };
 
-export default cockpit;
+export default React.memo(cockpit);

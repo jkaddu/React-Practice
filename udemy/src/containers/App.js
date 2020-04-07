@@ -12,10 +12,10 @@ class App extends Component {
     persons: [
       { id: "a1", name: "Blackpanther", age: 23 },
       { id: "b1", name: "Spiderman", age: 22 },
-      { id: "c1", name: "Superman", age: 21 }
+      { id: "c1", name: "Superman", age: 21 },
     ],
     showPersons: false,
-    showCockpit: true
+    showCockpit: true,
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -33,13 +33,14 @@ class App extends Component {
 
   shouldComponentUpdate() {
     console.log("[App.js] shouldComponentUpdate");
+
     return true;
   }
 
   inputChangeHandler = (event, id) => {
     /* all the code here allows us to target the inputs individually,
 		rendering and interacting with the component efficiently */
-    const personIndex = this.state.persons.findIndex(p => {
+    const personIndex = this.state.persons.findIndex((p) => {
       return p.id === id;
     });
 
@@ -58,7 +59,7 @@ class App extends Component {
     this.setState({ showPersons: !doesShow });
   };
 
-  deletePersonsHandler = personIndex => {
+  deletePersonsHandler = (personIndex) => {
     // the commented out variable below creates a new array using the slice method to modify
     // const persons = this.state.person.slice();
 
