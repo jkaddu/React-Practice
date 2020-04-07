@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import classes from "./App.module.css";
 import Persons from "../Components/Persons/Persons";
 import Cockpit from "../Components/Persons/Cockpit/Cockpit";
+import AuthContext from "../context/auth-context";
 
 class App extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class App extends Component {
     ],
     showPersons: false,
     showCockpit: true,
+    authenticated: false,
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -36,6 +38,10 @@ class App extends Component {
 
     return true;
   }
+
+  loginHandler = () => {
+    this.setState({ authenticated: true });
+  };
 
   inputChangeHandler = (event, id) => {
     /* all the code here allows us to target the inputs individually,
@@ -93,16 +99,24 @@ class App extends Component {
         >
           Remove Cockpit
         </button>
-        {this.state.showCockpit ? (
-          <Cockpit
-            title={this.props.appTitle}
-            showPersons={this.state.showPersons}
-            persons={this.state.persons}
-            clicked={this.togglePersonsHandler}
-          />
-        ) : null}
+        <AuthContext.Provider
+          value={{
+            authenticated: this.state.authenticated,
+            login: this.loginHandler,
+          }}
+        >
+          {this.state.showCockpit ? (
+            <Cockpit
+              title={this.props.appTitle}
+              showPersons={this.state.showPersons}
+              persons={this.state.persons}
+              clicked={this.togglePersonsHandler}
+              login={this.loginHandler}
+            />
+          ) : null}
 
-        {persons}
+          {persons}
+        </AuthContext.Provider>
       </div>
     );
   }
